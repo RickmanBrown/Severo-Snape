@@ -1,68 +1,288 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* 1. RESET E FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: #05070a; 
+  font-family: 'Lora', serif;
+  overflow: hidden; 
+}
+
+/* 2. CONTAINER E EFEITOS DE AMBIENTE */
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at 70% 50%, #0f172a 0%, #05070a 100%);
+}
+
+.magic-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.15;
+  animation: drift 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 500px 500px; }
+}
+
+.content {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+/* 3. LADO ESQUERDO: IMAGEM */
+.image-container {
+  flex: 1;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(20%) contrast(110%) brightness(75%);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%; 
+  height: 100%;
+  background: linear-gradient(to right, transparent, #0f172a);
+}
+
+/* 4. LADO DIREITO: TEXTO E CAPÍTULOS */
+.text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8%;
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.book-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #64748b;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  color: #e2e8f0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+h1 span {
+  color: #4ade80;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px rgba(74, 222, 128, 0.2); }
+  to { text-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #4ade80;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo compartilhado de cor e fonte */
+.subtitle, .instrucoes {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+/* Espaço específico para a CAPA (Cria o vácuo entre frase e botão) */
+.subtitle {
+  margin-bottom: 5rem; 
+}
+
+/* Espaço específico para DENTRO DO LIVRO (Perto dos capítulos) */
+.instrucoes {
+  margin-bottom: 1.5rem; 
+}
+
+/* 5. LISTA DE CAPÍTULOS (ESTILO LIVRO DE POÇÕES) */
+.capitulos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1.5rem 0;
+  text-align: left;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+/* Scrollbar personalizada "Sonserina" */
+.capitulos-lista::-webkit-scrollbar {
+  width: 3px;
+}
+.capitulos-lista::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+.capitulos-lista:hover::-webkit-scrollbar-thumb {
+  background: #4ade80;
+}
+
+.capitulo-item {
+  border-left: 2px solid #1e293b;
+  padding-left: 1.5rem;
+  transition: all 0.4s ease;
+  opacity: 0.7;
+}
+
+.capitulo-item:hover {
+  transform: translateX(10px);
+  border-left-color: #4ade80;
+  opacity: 1;
+}
+
+.capitulo-item span {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.capitulo-item button {
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  text-align: left;
+  padding: 0;
+  margin-top: 4px;
+  transition: color 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.capitulo-item button:hover {
+  color: #4ade80;
+}
+
+/* 6. BOTÕES E TRANSIÇÕES */
+.enter-button {
+  width: fit-content;
+  padding: 15px 40px;
+  background: transparent;
+  border: 1px solid #4ade80;
+  color: #4ade80;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.enter-button:hover {
+  background: #4ade80;
+  color: #0f172a;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.back-button {
+  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #334155;
+  color: #64748b;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  color: #4ade80;
+  border-bottom-color: #4ade80;
+  letter-spacing: 4px;
+}
+
+/* 7. EFEITOS DE TINTA E REVELAÇÃO */
+.ink-splash-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #05070a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  pointer-events: none;
+  transition: width 1.2s ease-in, height 1.2s ease-in;
+}
+
+.ink-splash-overlay.active {
+  width: 300vmax;
+  height: 300vmax;
+}
+
+.mensagem-secreta {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 8. RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .content { flex-direction: column; }
+  .image-container { height: 40vh; }
+  .image-overlay {
+    width: 100%;
+    height: 40%;
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(to top, #0f172a, transparent);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  .text { padding: 2rem; text-align: center; align-items: center; }
+  h1 { font-size: 2.2rem; }
+  .capitulos-lista { align-items: center; text-align: center; }
+  .capitulo-item { border-left: none; border-bottom: 1px solid #1e293b; padding: 0 0 10px 0; }
+  .back-button { align-self: center; }
 }
