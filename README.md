@@ -1,16 +1,23 @@
-# React + Vite
+# 🧪 O Diário do Príncipe Mestiço
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um projeto imersivo de Front-end inspirado no universo de Harry Potter, focado na experiência de usuário (UX) e em transições cinematográficas. Este site serve como a porta de entrada para o "Livro de Poções Avançadas" de Severus Snape.
 
-Currently, two official plugins are available:
+## 🪄 Funcionalidades Atuais
+- **Capa Imersiva:** Layout dividido com imagem em 100% da altura e tipografia épica.
+- **Transição de Tinta:** Efeito visual de mancha de tinta negra ao clicar em "Desvendar Segredos", simulando a magia do diário.
+- **Ambiente Animado:** Movimento de névoa e partículas para simular as masmorras de Hogwarts.
+- **Capítulos do Livro:** Navegação estruturada por capítulos para futura expansão de conteúdo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tecnologias Utilizadas
+- **React.js** (Estrutura e Gerenciamento de Estado)
+- **CSS3** (Animações de Keyframes, Flexbox e Efeitos Visuais)
+- **Google Fonts** (Cinzel e Lora para estética de livro antigo)
 
-## React Compiler
+## 🚧 Próximos Passos (O Caminho do Bruxo)
+Este projeto foi desenhado para evoluir para uma aplicação Full-Stack. Os planos futuros incluem:
+- **Integração com Backend Java (Spring Boot):** - Gerenciamento de um banco de dados de ingredientes e poções.
+  - Sistema de autenticação (Desbloqueio de capítulos via feitiços).
+  - Lógica de mistura de poções processada no servidor.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✒️ "Este livro é propriedade do Príncipe Mestiço"
+Projeto desenvolvido como estudo de interface e lógica de transição.
