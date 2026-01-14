@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Feiticos({ aoVoltar }) {
+function Penseira({ aoVoltar }) { 
   return (
     <div className="mensagem-secreta">
-      <h2>Feitiços</h2>
+      <h2>Penseira</h2>
       <button className="back-button" onClick={aoVoltar}>Voltar</button>
     </div>
   );
 }
 
-export default Feiticos;
+export default Penseira;

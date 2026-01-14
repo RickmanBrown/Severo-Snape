@@ -1,28 +1,363 @@
+/* 1. RESET E DEFINIÇÕES TÉCNICAS */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #0f0f14;
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: #05070a;
   color: #ffffff;
+  font-family: 'Lora', serif;
+  overflow: hidden; 
 }
 
+/* 2. CONTAINER E AMBIENTAÇÃO (MAGIC PARTICLES) */
 .container {
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at 70% 50%, #0f172a 0%, #05070a 100%);
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.magic-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.15;
+  animation: drift 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 500px 500px; }
+}
+
+/* 3. ESTRUTURA DE CONTEÚDO (DUAS COLUNAS) */
+.content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+.image-container {
+  flex: 1;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(20%) contrast(110%) brightness(75%);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%; 
+  height: 100%;
+  background: linear-gradient(to right, transparent, #0f172a);
+}
+
+.text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 0 8%;
+  background-color: #0f172a;
+}
+
+/* 4. TIPOGRAFIA E ELEMENTOS VISUAIS */
+.book-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #64748b;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 1.5rem;
 }
 
-p {
-  opacity: 0.8;
+h1 span {
+  color: #4ade80;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px rgba(74, 222, 128, 0.2); }
+  to { text-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #4ade80;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #94a3b8;
+  margin-bottom: 4rem; 
+}
+
+/* 5. NAVEGAÇÃO E LISTAS (SUMÁRIO) */
+.capitulos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.capitulo-item {
+  border-left: 2px solid #1e293b;
+  padding-left: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.capitulo-item:hover {
+  transform: translateX(10px);
+  border-left-color: #4ade80;
+}
+
+.capitulo-item span {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.capitulo-item button {
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 5px;
+  transition: color 0.3s;
+}
+
+.capitulo-item button:hover {
+  color: #4ade80;
+}
+
+/* 6. PÁGINA "SOBRE" E TEXTO LONGO (ESTILO PERGAMINHO) */
+.sobre-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  text-align: left;
+}
+
+.texto-longo {
+  overflow-y: auto;
+  padding-right: 15px;
+  margin: 20px 0;
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+
+.texto-longo::-webkit-scrollbar {
+  width: 4px;
+}
+
+.texto-longo::-webkit-scrollbar-thumb {
+  background: #4ade80;
+  border-radius: 10px;
+}
+
+.texto-longo h3 {
+  color: #4ade80;
+  margin-top: 25px;
+  font-family: 'Cinzel', serif;
+}
+
+.texto-longo p {
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+.citacao {
+  font-style: italic;
+  font-size: 1.1rem;
+  border-left: 2px solid #4ade80;
+  padding-left: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+/* 7. CAPÍTULO III - GRID DE ESTOQUE (INVENTÁRIO) */
+.estoque-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.ingrediente-card {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(74, 222, 128, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.ingrediente-card:hover {
+  border-color: #4ade80;
+  transform: translateY(-5px);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+/* 8. BOTÕES E TRANSIÇÃO DE TINTA */
+.enter-button {
+  width: fit-content;
+  padding: 15px 40px;
+  background: transparent;
+  border: 1px solid #4ade80;
+  color: #4ade80;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.enter-button:hover {
+  background: #4ade80;
+  color: #0f172a;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+}
+
+.back-button {
+  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #64748b;
+  color: #64748b;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  color: #4ade80;
+  border-bottom-color: #4ade80;
+}
+
+.ink-splash-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #05070a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  pointer-events: none;
+  transition: width 1.5s ease-in, height 1.5s ease-in;
+}
+
+.ink-splash-overlay.active {
+  width: 300vmax;
+  height: 300vmax;
+}
+
+.mensagem-secreta {
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Poeira mágica sobre o texto */
+.texto-longo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.1; 
+  pointer-events: none;
+  animation: floatingDust 60s linear infinite;
+}
+
+.sobre-container h2 {
+  color: #4ade80;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0);
+  animation: pulseGreen 4s ease-in-out infinite alternate;
+}
+.fade-item {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: revealText 0.8s ease-out forwards;
+}
+
+@keyframes revealText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGreen {
+  from { text-shadow: 0 0 5px rgba(74, 222, 128, 0.2); }
+  to { text-shadow: 0 0 20px rgba(74, 222, 128, 0.6); }
+}
+
+@keyframes floatingDust {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 500px; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 9. RESPONSIVO */
+@media (max-width: 768px) {
+  .content { flex-direction: column; }
+  .image-container { height: 40vh; }
+  .image-overlay {
+    width: 100%;
+    height: 40%;
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(to top, #0f172a, transparent);
+  }
+  .text { padding: 2rem; text-align: center; align-items: center; }
+  h1 { font-size: 2.2rem; }
 }
