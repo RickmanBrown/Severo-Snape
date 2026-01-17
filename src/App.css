@@ -1,17 +1,10 @@
 /* 1. RESET E DEFINIÇÕES TÉCNICAS */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box;
 }
 
-body, html {
-  width: 100%;
-  height: 100%;
-  background-color: #05070a;
-  color: #ffffff;
+body, html { width: 100%; height: 100%; background-color: #05070a; color: #ffffff;
   font-family: 'Lora', serif;
   overflow: hidden; 
 }

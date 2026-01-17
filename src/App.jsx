@@ -10,6 +10,7 @@ import Penseira from './pages/Penseira.jsx';
 function App() {
   const [animando, setAnimando] = useState(false);
   const [paginaAtiva, setPaginaAtiva] = useState('Home');
+  const [noLivro, setNoLivro] = useState(false);
 
   
   const navegarPara = (novaPagina) => {

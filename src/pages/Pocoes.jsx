@@ -7,6 +7,7 @@ const Pocoes = ({aoVoltar}) => {
             <div className="divider"></div>
             <p>Aqui jazem as receitas editadas pelo Príncipe Mestiço.</p>
             <button className="back-button" onClick={aoVoltar}>Voltar</button>
+            
         </div>
     )
 };
