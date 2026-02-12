@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./App.css";
 import Home from './pages/Home.jsx';
 import Sobre from './pages/Sobre.jsx';
-import Pocoes from './pages/Pocoes.jsx';
+import Livro from './pages/livro/Livro.jsx';
 import Estoque from './pages/Estoque.jsx';
 import Feiticos from './pages/Feiticos.jsx'; 
 import Penseira from './pages/Penseira.jsx';
@@ -10,8 +10,6 @@ import Penseira from './pages/Penseira.jsx';
 function App() {
   const [animando, setAnimando] = useState(false);
   const [paginaAtiva, setPaginaAtiva] = useState('Home');
-  const [noLivro, setNoLivro] = useState(false);
-
   
   const navegarPara = (novaPagina) => {
     setAnimando(true);
@@ -38,18 +36,22 @@ function App() {
                 <span>Capítulo I</span>
                 <button onClick={() => navegarPara('Sobre')}>O Príncipe Mestiço: Quem sou eu?</button>
               </div>
+              
               <div className="capitulo-item">
                 <span>Capítulo II</span>
-                <button onClick={() => navegarPara('Pocoes')}>Poções Avançadas: Receitas Editadas</button>
+                <button onClick={() => navegarPara('Livro')}>Poções Avançadas: Receitas Editadas</button>
               </div>
+              
               <div className="capitulo-item">
                 <span>Capítulo III</span>
                 <button onClick={() => navegarPara('Estoque')}>Estoque Privado de Ingredientes</button>
               </div>
+              
               <div className="capitulo-item">
                 <span>Capítulo IV</span>
                 <button onClick={() => navegarPara('Feiticos')}>Sectumsempra e Feitiços Autorais</button>
               </div>
+              
               <div className="capitulo-item">
                 <span>Capítulo V</span>
                 <button onClick={() => navegarPara('Penseira')}>A Penseira: Memórias do Diretor</button>
@@ -63,7 +65,7 @@ function App() {
         );
 
       case 'Sobre': return <Sobre aoVoltar={() => navegarPara('Sumario')} />;
-      case 'Pocoes': return <Pocoes aoVoltar={() => navegarPara('Sumario')} />;
+      case 'Livro': return <Livro aoVoltar={() => navegarPara('Sumario')} />;
       case 'Estoque': return <Estoque aoVoltar={() => navegarPara('Sumario')} />;
       case 'Feiticos': return <Feiticos aoVoltar={() => navegarPara('Sumario')} />;
       case 'Penseira': return <Penseira aoVoltar={() => navegarPara('Sumario')} />;
@@ -79,12 +81,14 @@ function App() {
       <div className="magic-particles"></div>
 
       <div className="content">
-        <div className="image-container">
-          <img src="./img/fotosnape-1.png" alt="Severus Snape" />
-          <div className="image-overlay"></div>
-        </div>
+        {paginaAtiva !== 'Livro' && (
+          <div className="image-container">
+            <img src="./img/fotosnape-1.png" alt="Severus Snape" />
+            <div className="image-overlay"></div>
+          </div>
+        )}
 
-        <div className="text">
+        <div className={`text ${paginaAtiva === 'Livro' ? 'modo-leitura' : ''}`}>
           {renderizarPagina()}
         </div>
       </div>

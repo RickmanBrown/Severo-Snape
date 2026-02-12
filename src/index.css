@@ -269,6 +269,100 @@ h1 span {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Estilos do Livro do Príncipe Mestiço --- */
+
+.pagina-livro {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #2c241b; /* Cor de tinta velha */
+  font-family: 'Times New Roman', serif; /* Fonte de livro impresso */
+  text-align: left;
+}
+
+.cabecalho-livro {
+  text-align: center;
+  border-bottom: 2px solid #2c241b;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.autor-livro {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.titulo-livro-antigo {
+  font-size: 2rem;
+  margin: 10px 0;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+/* Efeito de rasura do Snape */
+.risco-propriedade {
+  margin-top: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.texto-impresso-apagado {
+  text-decoration: line-through;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.assinatura-principe {
+  display: block;
+  font-family: 'Caveat', cursive; /* Fonte manuscrita */
+  color: #1a237e; /* Azul tinteiro escuro */
+  font-size: 1.5rem;
+  transform: rotate(-5deg);
+  margin-top: -10px;
+  font-weight: bold;
+}
+
+/* Lista de Receitas */
+.titulo-indice {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.lista-receitas {
+  list-style: none;
+  padding: 0;
+}
+
+.item-receita {
+  border-bottom: 1px dashed #ccc;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.item-receita:hover {
+  background: rgba(0, 0, 0, 0.05); /* Leve escurecida ao passar o mouse */
+}
+
+.linha-receita {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.anotacao-mao {
+  font-family: 'Caveat', cursive;
+  color: #1a237e;
+  font-size: 1.1rem;
+  margin: 5px 0 0 10px;
+  transform: rotate(-1deg);
+}
+
 /* 8. RESPONSIVIDADE */
 @media (max-width: 768px) {
   .content { flex-direction: column; }
