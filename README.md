@@ -22,4 +22,4 @@ Este projeto foi desenhado para evoluir para uma aplicação Full-Stack. Os plan
 ## ✒️ "Este livro é propriedade do Príncipe Mestiço"
 Projeto desenvolvido como estudo de interface e lógica de transição.
 
-© 2026 Rickman Brown • Software Engineering
+© 2026 Rickman Brown 
